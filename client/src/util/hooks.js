@@ -8,7 +8,11 @@ export const useForm = (callback, initialState = {}) => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        callback();
+        try {
+            callback();
+        } catch (err) {
+            console.error(err);
+        }
     };
 
     return {
